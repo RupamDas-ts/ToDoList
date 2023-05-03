@@ -2,21 +2,9 @@
     let tasks = [];
     var taskList = document.getElementById('list');
     var taskCounter = document.getElementById('tasks-counter');
-    // var newTaskId = document.getElementById('add');
     var incompleted_task_counter = document.getElementById('incomplete_tasks');
 
-    // async function fetchTODO(){
-        
-    //     try{
-    //         const response = await fetch('https://jsonplaceholder.typicode.com/todos');
-    //         const data = await response.json();
-    //         tasks = data.slice(0,10);
-    //         renderTaskList();
-    //     }catch(error){
-    //         console.log(error);
-    //     }
-    // }
-
+    // This function takes a task as an argument and add that task to the document
     function addTaskToDom(task){
         const li = document.createElement('li');
 
@@ -31,6 +19,7 @@
         taskList.append(li);
     }
 
+    // This function is used to show the list in the web-page
     function renderTaskList(){
         taskList.innerHTML = '';
         let incomplete_tasks = 0;
@@ -44,6 +33,8 @@
         taskCounter.innerHTML = tasks.length;
     }
 
+
+// This function marks all the tasks as complete
 function complete_all_tasks(){
     for(let i = 0; i < tasks.length; i++){
         if(tasks[i].completed === false){
@@ -53,6 +44,7 @@ function complete_all_tasks(){
     }
 }
 
+// This function remove all the completed tasks
 function remove_complete(){
     const newTasks = tasks.filter(function(task){
         return task.completed != true;
@@ -61,6 +53,7 @@ function remove_complete(){
     renderTaskList();
 }
 
+// This function render the tasks that are incomplete
 function renderIncompleteTaskList(){
     taskList.innerHTML = '';
     for(let i = 0; i < tasks.length; i++){
@@ -69,6 +62,8 @@ function renderIncompleteTaskList(){
         }
     }
 }
+
+// This function render the tasks that are complete
 function renderCompletedTaskList(){
     taskList.innerHTML = '';
     for(let i = 0; i < tasks.length; i++){
@@ -78,6 +73,7 @@ function renderCompletedTaskList(){
     }
 }
 
+// This function marks a task as complete by taking that specific task-id as input
     function markTaskAsComplete(taskId){
         const task = tasks.filter(function(task){
             return task.id == taskId;
@@ -93,6 +89,7 @@ function renderCompletedTaskList(){
         showNotification('Couldnt toggle the task');
     }
 
+    // This function delete a task from the tasks array by taking that specific task-id as input
     function deleteTask(taskId){
         const newTasks = tasks.filter(function(task){
             return task.id != taskId;
@@ -103,9 +100,10 @@ function renderCompletedTaskList(){
 
     }
 
+    // This function takes a task as an argument and add that task to tasks array
     function addTask(task){
         if(task){
-            console.log(task);
+            // console.log(task);
             tasks.push(task);
             renderTaskList();
             showNotification('Task Added Successfully');
@@ -114,34 +112,16 @@ function renderCompletedTaskList(){
         showNotification('Task Could not be Added');
     }
 
+    // To show any kind of alerts
     function showNotification(text){
         alert(text);
     }
 
-    // function handleKeyPressEvent(e){
-    //     if(e.key === 'Enter'){
-    //         const text = e.target.value;
-
-    //         if(!text){
-    //             showNotification('Invalid Input');
-    //             return;
-    //         }
-
-    //         const task = {
-    //             title: text,
-    //             id: Date.now().toString(),
-    //             completed: false
-    //         }
-
-    //         e.target.value = '';
-    //         addTask(task);
-    //     }
-    // }
-
+    // This handles all the clicks on the dom
     function handleClickListners(e){
         const target = e.target;
         if(target.id === 'add-button'){
-            console.log(target.id);
+            // console.log(target.id);
             const text_container = document.getElementById('input');
             const text = text_container.value;
             if(!text){
@@ -185,23 +165,7 @@ function renderCompletedTaskList(){
     function initializeDoc(){
         // newTaskId.addEventListener('keyup',handleKeyPressEvent);
         document.addEventListener('click',handleClickListners);
-        // fetchTODO();
         
-
-        // Initially hide the button
-        addButton.style.display = "none !important";
-
-        // Add an event listener to the input field
-        input.addEventListener("input", function() {
-        // Check if the input field has some text
-            if (input.value.trim().length > 0) {
-                // If it does, show the button
-                addButton.style.display = "block !important";
-            } else {
-                // Otherwise, hide the button
-                addButton.style.display = "none !important";
-            }
-        });
 
     }
 
