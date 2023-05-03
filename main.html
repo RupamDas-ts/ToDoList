@@ -1,0 +1,44 @@
+<html>
+    <head>
+        <title> To Do List</title>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+        <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+        <link rel = "stylesheet" href="style.css">
+    </head>
+    <body>
+        <h1>To Do List</h1>
+        <div class="container">
+            <div class="input-container">
+                <input type="text" class="input-field" id="input" placeholder="Add a task"/>
+                <button class="input-button"><span class="material-symbols-outlined" id="add-button">add_circle</span></button>
+            </div>
+            <!-- <input placeholder="Add a task" class="add-task" id="add" data-helloWord="asdasdas"/> -->
+            <div class="extras">
+                <span id="total-tasks">Total tasks: <span id="tasks-counter">0</span></span>
+                <div class="extra_buttons">
+                    <span id="complete_all"><img src="double-tick.png">Complete all tasks</span>
+                    <span id="remove_complete">Remove Completed</span>
+                </div>
+            </div>
+            <ul id="list">
+                <!-- <li>
+                <input type="checkbox" id="task1" data-id="12" class="custom-checkbox">
+                <label for="task1">Buy groceries</label>
+                <img src="bin.svg" class="delete" data-id="12" />
+                </li> -->
+            </ul>
+            <div class="extras extra_buttons">
+                <span><span id="incomplete_tasks">0</span> Tasks left</span>
+                <div class="extra_buttons">
+                    <span id="show_all">All tasks</span>
+                    <span id="show_incomplete">Incomplete Tasks</span>
+                    <span id="show_complete">Complete Tasks</span>
+                </div>
+            </div>
+        </div>
+        
+          
+          
+        <script src="script.js"></script>
+    </body>
+</html>
