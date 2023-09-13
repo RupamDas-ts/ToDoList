@@ -9,7 +9,7 @@
         const li = document.createElement('li');
 
         li.innerHTML = `
-            <li>
+            <li class="${task.id}">
                 <input type="checkbox" id="${task.id}" data-id="${task.id}" ${task.completed ? 'checked' : ''} class="custom-checkbox">
                 <label for="${task.id}">${task.title}</label>
                 <img src="bin.svg" class="delete" data-id="${task.id}" />
